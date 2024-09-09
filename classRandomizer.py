@@ -1,26 +1,38 @@
 import random
 
 def randomize_list(names, force_end_names=[]):
+    """Randomizes a list of names, forcing certain names to appear at the end.
 
-  # Create a copy of the names list to avoid modifying the original
-  names_copy = names.copy()
+    Args:
+        names: A list of names.
+        force_end_names: A list of names that should appear at the end.
 
-  # Remove the forced names from the copy
-  for name in force_end_names:
-    names_copy.remove(name)
+    Returns:
+        A randomized list of names.
+    """
 
-  # Randomize the remaining names
-  random.shuffle(names_copy)
+    # Create a copy of the names list to avoid modifying the original
+    names_copy = names.copy()
 
-  # Add the forced names to the end
-  names_copy.extend(force_end_names)
+    # Convert force_end_names to a set to remove duplicates
+    unique_force_end_names = set(force_end_names)
 
-  return names_copy
+    # Remove the forced names from the copy
+    for name in unique_force_end_names:
+        if name in names_copy:
+            names_copy.remove(name)
+
+    # Randomize the remaining names
+    random.shuffle(names_copy)
+
+    # Add the forced names to the end
+    names_copy.extend(unique_force_end_names)
+
+    return names_copy
 
 if __name__ == "__main__":
-  names = input("Enter names, separated by commas: ").split(",")
-  force_end_names = input("Enter names to force to the end, separated by commas: ").split(",")
+    names = input("Enter names, separated by commas: ").split(",")
+    force_end_names = input("Enter names to force to the end, separated by commas: ").split(",")
 
-  randomized_names = randomize_list(names, force_end_names)
-  print(randomized_names)
-
+    randomized_names = randomize_list(names, force_end_names)
+    print(randomized_names)

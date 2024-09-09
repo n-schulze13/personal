@@ -31,7 +31,7 @@ def randomize_list(names, force_end_names=[]):
     return names_copy
 
 if __name__ == "__main__":
-    names = input("Enter names, separated by commas: ").split(",")
+    names = input("Enter names, separated by commas: ").split(", ")
     force_end_names = input("Enter names to force to the end, separated by commas: ").split(",")
 
     randomized_names = randomize_list(names, force_end_names)

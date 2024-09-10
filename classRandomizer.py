@@ -1,16 +1,7 @@
 import random
 
 def randomize_list(names, force_end_names=[]):
-    """Randomizes a list of names, forcing certain names to appear at the end.
-
-    Args:
-        names: A list of names.
-        force_end_names: A list of names that should appear at the end.
-
-    Returns:
-        A randomized list of names.
-    """
-
+    
     # Create a copy of the names list to avoid modifying the original
     names_copy = names.copy()
 

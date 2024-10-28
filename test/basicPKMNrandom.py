@@ -10,12 +10,9 @@ def main():
     
     for i in range(int(pcount)*6):
         mon = random.randint(1,max(dex))
-        if mon in choices:
-            continue
-            #reroll choice
-        else:
-            choices.append(mon)
-
+        while mon in choices:
+            random.randint(1,max(dex))
+        choices.append(mon)
 
     print(choices)
 

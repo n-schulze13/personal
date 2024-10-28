@@ -12,7 +12,7 @@ def main():
     # read the csv into a variable
     # df = pd.read_csv(sys.argv[1])
 
-    with open('pokemon.csv', 'r') as file:
+    with open('./test/pokemon.csv', 'r') as file:
         reader = csv.reader(file)
         for row in reader:
             print(row)  # Each row is a list of values

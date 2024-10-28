@@ -5,14 +5,17 @@ import csv
 import sys
 
 def main():
-    if len(sys.argv) != 2:
+    """if len(sys.argv) != 2:
         print("Usage: python pkmnrandom.py pokemon.csv")
-        sys.exit(1)
+        sys.exit(1)"""
     
     # read the csv into a variable
-    df = pd.read_csv(sys.argv[1])
+    # df = pd.read_csv(sys.argv[1])
 
-    print(df)
+    with open('pokemon.csv', 'r') as file:
+        reader = csv.reader(file)
+        for row in reader:
+            print(row)  # Each row is a list of values
     
 
 main()

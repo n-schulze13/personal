@@ -3,10 +3,10 @@ import random
 def main():
     
     choices = []
+    dex = []
+
     regionChoice = input("What region's pokedex would you like to use? Default is National. Please enter [letter] - [K]anto, [J]ohto, [H]oenn, [S]innoh, H[i]sui, [U]nova, Ka[l]os, [A]lola, [G]alar, [P]aldea: ")
     pcount = input("How many players are there? ")
-    
-    dex = []
     
 # switch for region entry to set a dex size
     match regionChoice.capitalize:

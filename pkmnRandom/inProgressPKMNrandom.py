@@ -1,21 +1,28 @@
-# pokemon randomizer - will read the pokedex csv file and take specifications to output a list of mons for a draft!
-
-import pandas as pd
-import csv
-import sys
+import random
 
 def main():
-    """if len(sys.argv) != 2:
-        print("Usage: python pkmnrandom.py pokemon.csv")
-        sys.exit(1)"""
     
-    # read the csv into a variable
-    # df = pd.read_csv(sys.argv[1])
+    choices = []
+    regionChoice = input("What region's pokedex would you like to use? Default is National. Please enter [letter] - [K]anto, [J]ohto, [H]oenn, [S]innoh, H[i]sui, [U]nova, Ka[l]os, [A]lola, [G]alar, [P]aldea: ")
+    pcount = input("How many players are there? ")
+    
+    dex = []
+    
+# switch for region entry to set a dex size
+    match regionChoice.capitalize:
+        case 'K':
+            dex = [151]
+        case 'J':
+            dex = [256]
+        case 'H':
+            dex = [202]
 
-    with open('pokemon.csv', 'r') as file:
-        reader = csv.reader(file)
-        for row in reader:
-            print(row)  # Each row is a list of values
-    
+    for i in range(int(pcount)*6):
+        mon = random.randint(1,max(dex))
+        while mon in choices:
+            random.randint(1,max(dex))
+        choices.append(mon)
+
+    print(choices)
 
 main()

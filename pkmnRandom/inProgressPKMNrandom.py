@@ -16,6 +16,22 @@ def main():
             dex = [256]
         case 'H':
             dex = [202]
+        case 'S':
+            dex = [210]
+        case 'I':
+            dex = [242]
+        case 'U':
+            dex = [155]
+        case 'L':
+            dex = [457]
+        case 'A':
+            dex = [302]
+        case 'G':
+            dex = [400]
+        case 'P': 
+            dex = [400]
+        case _:
+            dex = [1025]
 
     for i in range(int(pcount)*6):
         mon = random.randint(1,max(dex))

@@ -29,14 +29,15 @@ def main():
         print("Invalid player count. Using default value of 2.")
         player_count = 2
 
-    choices = []
-    for _ in range(player_count * 6):
-        mon = random.randint(1, dex_size)
-        while mon in choices:
-            mon = random.randint(1, dex_size)
-        choices.append(mon)
+    # Generate a list of unique random numbers within the dex size
+    choices = random.sample(range(1, dex_size + 1), player_count * 6)
 
-    print(choices)
+    # Divide the choices into teams
+    player_teams = []
+    for i in range(player_count):
+        player_teams.append(choices[i*6:(i+1)*6])
+
+    print(player_teams)
 
 if __name__ == "__main__":
     main()
